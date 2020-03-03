@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/channel/channel.iml" filepath="$PROJECT_DIR$/channel/channel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel/channel-base/channel-base.iml" filepath="$PROJECT_DIR$/channel/channel-base/channel-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel/channel-unionpay-starter/channel-unionpay-starter.iml" filepath="$PROJECT_DIR$/channel/channel-unionpay-starter/channel-unionpay-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/channel/channel-wechat-starter/channel-wechat-starter.iml" filepath="$PROJECT_DIR$/channel/channel-wechat-starter/channel-wechat-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server-openapi/server-openapi.iml" filepath="$PROJECT_DIR$/server-openapi/server-openapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/third-party-platform.iml" filepath="$PROJECT_DIR$/third-party-platform.iml" />
+    </modules>
+  </component>
+</project>

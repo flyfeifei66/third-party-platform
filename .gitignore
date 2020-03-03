@@ -1,0 +1,3 @@
+# Project exclude paths
+/channel/channel-base/target/
+/channel/channel-wechat-starter/target/
