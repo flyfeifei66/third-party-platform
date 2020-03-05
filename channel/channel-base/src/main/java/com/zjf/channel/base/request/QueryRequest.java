@@ -1,8 +1,9 @@
 package com.zjf.channel.base.request;
 
 /**
+ * 查询请求
+ *
  * @author zhaojufei
  */
-public class BaseRequest {
-
+public class QueryRequest extends BaseRequest {
 }
