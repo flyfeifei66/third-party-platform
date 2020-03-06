@@ -1,9 +1,9 @@
 package com.zjf.channel.base.service;
 
 
-import com.zjf.channel.base.config.ChannelConfig;
-import com.zjf.channel.base.request.QueryRequest;
-import com.zjf.channel.base.response.CreateResponse;
+import com.zjf.channel.base.config.BaseConfig;
+import com.zjf.channel.base.method.request.BaseQueryRequest;
+import com.zjf.channel.base.method.response.BaseCreateResponse;
 
 /**
  * @author maxh
@@ -17,7 +17,7 @@ public interface IChannelService {
      * @param config
      * @return
      */
-    QueryRequest query(QueryRequest queryRequest, ChannelConfig config);
+    BaseQueryRequest query(BaseQueryRequest queryRequest, BaseConfig config);
 
 
     /**
@@ -27,6 +27,6 @@ public interface IChannelService {
      * @param channelConfig
      * @return
      */
-    CreateResponse create(CreateResponse createResponse, ChannelConfig channelConfig);
+    BaseCreateResponse create(BaseCreateResponse createResponse, BaseConfig channelConfig);
 
 }
