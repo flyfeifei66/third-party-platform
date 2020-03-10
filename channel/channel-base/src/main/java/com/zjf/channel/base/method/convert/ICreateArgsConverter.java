@@ -1,10 +1,12 @@
 package com.zjf.channel.base.method.convert;
 
-import com.zjf.channel.base.method.param.request.BaseCreateRequest;
-import com.zjf.channel.base.method.param.response.BaseCreateResponse;
+import com.zjf.channel.base.method.param.request.CreateRequest;
+import com.zjf.channel.base.method.param.response.CreateResponse;
 
 /**
  * @author zhaojufei
  */
-public interface ICreateArgsConverter<Req extends BaseCreateRequest, Res extends BaseCreateResponse, NReq, NRes> extends ArgsConverter<Req, Res, NReq, NRes> {
+public interface ICreateArgsConverter<NReq, NRes> extends IArgsConverter<CreateRequest, CreateResponse, NReq,
+        NRes> {
+
 }

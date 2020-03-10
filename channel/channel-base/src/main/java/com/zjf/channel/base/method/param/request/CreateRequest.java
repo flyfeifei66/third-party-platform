@@ -5,5 +5,5 @@ package com.zjf.channel.base.method.param.request;
  *
  * @author zhaojufei
  */
-public class BaseCreateRequest extends BaseRequest {
+public class CreateRequest extends BaseRequest {
 }

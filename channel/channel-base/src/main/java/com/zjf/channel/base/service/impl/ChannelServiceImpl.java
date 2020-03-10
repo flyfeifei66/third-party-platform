@@ -3,13 +3,15 @@ package com.zjf.channel.base.service.impl;
 import com.zjf.channel.base.config.BaseConfig;
 import com.zjf.channel.base.constant.ChannelEnum;
 import com.zjf.channel.base.method.IBaseMethod;
+import com.zjf.channel.base.method.ICreateMethod;
+import com.zjf.channel.base.method.IQueryMethod;
 import com.zjf.channel.base.method.client.factory.AbstractClientBuilder;
 import com.zjf.channel.base.method.client.factory.IClientBuilderFactory;
-import com.zjf.channel.base.method.impl.AbstractCreateMethod;
-import com.zjf.channel.base.method.impl.AbstractQueryMethod;
-import com.zjf.channel.base.method.param.request.BaseCreateRequest;
-import com.zjf.channel.base.method.param.request.BaseQueryRequest;
+import com.zjf.channel.base.method.param.request.CreateRequest;
+import com.zjf.channel.base.method.param.request.QueryRequest;
 import com.zjf.channel.base.method.param.request.BaseRequest;
+import com.zjf.channel.base.method.param.response.CreateResponse;
+import com.zjf.channel.base.method.param.response.QueryResponse;
 import com.zjf.channel.base.method.param.response.BaseResponse;
 import com.zjf.channel.base.service.IChannelService;
 
@@ -19,12 +21,12 @@ import com.zjf.channel.base.service.IChannelService;
 public class ChannelServiceImpl<NC> implements IChannelService {
 
     private ChannelEnum channelEnum;
-    private AbstractQueryMethod queryMethod;
-    private AbstractCreateMethod createMethod;
+    private IQueryMethod<NC> queryMethod;
+    private ICreateMethod<NC> createMethod;
     private IClientBuilderFactory<? extends AbstractClientBuilder<NC>> clientBuilderFactory;
 
-    public ChannelServiceImpl(ChannelEnum channelEnum, AbstractQueryMethod queryMethod,
-                              AbstractCreateMethod createMethod,
+    public ChannelServiceImpl(ChannelEnum channelEnum, IQueryMethod queryMethod,
+                              ICreateMethod createMethod,
                               IClientBuilderFactory clientBuilderFactory) {
         this.channelEnum = channelEnum;
         this.queryMethod = queryMethod;
@@ -40,8 +42,8 @@ public class ChannelServiceImpl<NC> implements IChannelService {
      * @return
      */
     @Override
-    public <T> T query(BaseQueryRequest queryRequest, BaseConfig config) {
-        return (T) this.executeMethod(this.queryMethod, queryRequest, config);
+    public QueryResponse query(QueryRequest queryRequest, BaseConfig config) {
+        return this.executeMethod(this.queryMethod, queryRequest, config);
     }
 
     /**
@@ -52,8 +54,8 @@ public class ChannelServiceImpl<NC> implements IChannelService {
      * @return
      */
     @Override
-    public <T> T create(BaseCreateRequest createRequest, BaseConfig config) {
-        return (T) this.executeMethod(this.createMethod, createRequest, config);
+    public CreateResponse create(CreateRequest createRequest, BaseConfig config) {
+        return this.executeMethod(this.createMethod, createRequest, config);
     }
 
 
@@ -65,10 +67,11 @@ public class ChannelServiceImpl<NC> implements IChannelService {
      * @param <Res>
      * @return
      */
-    private <Req extends BaseRequest, Res extends BaseResponse> Res executeMethod(IBaseMethod<Req, Res, NC> baseMethod,
-                                                                                  Req request,
-                                                                                  BaseConfig config) {
-        return baseMethod.execute(this.getClient(config), request, config);
+    protected <Req extends BaseRequest, Res extends BaseResponse> Res executeMethod(IBaseMethod<Req, Res, NC> baseMethod,
+                                                                                    Req request,
+                                                                                    BaseConfig config) {
+        Res execute = baseMethod.execute(this.getClient(config), request, config);
+        return execute;
     }
 
     /**

@@ -1,13 +1,13 @@
 package com.zjf.channel.base.method;
 
-import com.zjf.channel.base.method.param.request.BaseQueryRequest;
-import com.zjf.channel.base.method.param.response.BaseQueryResponse;
+import com.zjf.channel.base.method.param.request.QueryRequest;
+import com.zjf.channel.base.method.param.response.QueryResponse;
 
 /**
- * 查询方法模式定义
+ * 创建方法，此接口定义主要是明确泛型
  *
  * @author zhaojufei
  */
-public interface IQueryMethod<Req extends BaseQueryRequest, Res extends BaseQueryResponse, NC> extends IBaseMethod<Req, Res, NC> {
+public interface IQueryMethod<NC> extends IBaseMethod<QueryRequest, QueryResponse, NC> {
 
 }

@@ -5,5 +5,5 @@ package com.zjf.channel.base.method.param.response;
  *
  * @author zhaojufei
  */
-public class BaseCreateResponse extends BaseResponse {
+public class CreateResponse extends BaseResponse {
 }

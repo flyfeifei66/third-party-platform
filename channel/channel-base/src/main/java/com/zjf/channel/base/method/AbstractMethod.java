@@ -1,11 +1,10 @@
-package com.zjf.channel.base.method.impl;
+package com.zjf.channel.base.method;
 
 
-import com.zjf.channel.base.method.IBaseMethod;
-import com.zjf.channel.base.method.convert.ArgsConverter;
+import com.zjf.channel.base.config.BaseConfig;
+import com.zjf.channel.base.method.convert.IArgsConverter;
 import com.zjf.channel.base.method.param.request.BaseRequest;
 import com.zjf.channel.base.method.param.response.BaseResponse;
-import com.zjf.channel.base.config.BaseConfig;
 
 /**
  * 底层API抽象实现类
@@ -17,9 +16,9 @@ import com.zjf.channel.base.config.BaseConfig;
  *
  * @author zhaojufei
  */
-public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseResponse, CV extends ArgsConverter<Req,
-        Res, NReq, NRes>,
-        NReq, NRes, NC> implements IBaseMethod<Req, Res, NC> {
+public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseResponse, NReq, NRes, NC,
+                                                    CV extends IArgsConverter<Req, Res, NReq, NRes>>
+        implements IBaseMethod<Req, Res, NC> {
 
     /**
      * openapi参数与渠道sdk api参数转换器
@@ -46,7 +45,7 @@ public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseRe
     @Override
     public Res execute(NC nativeClient, Req request, BaseConfig config) {
         NReq nReq = apiArgsConverter.convertRequest(request, config);
-        NRes nRes = nativeExecute(nReq, nativeClient);
+        NRes nRes = nativeExecute(nativeClient, nReq);
         return apiArgsConverter.convertResponse(nRes);
     }
 
@@ -57,7 +56,8 @@ public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseRe
      * @param nativeClient
      * @return
      */
-    protected abstract NRes nativeExecute(NReq nativeRequest, NC nativeClient);
+    protected abstract NRes nativeExecute(NC nativeClient, NReq nativeRequest);
+
 
     public CV getApiArgsConverter() {
         return apiArgsConverter;

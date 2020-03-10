@@ -1,12 +1,13 @@
 package com.zjf.channel.base.method.convert;
 
-import com.zjf.channel.base.method.param.request.BaseQueryRequest;
-import com.zjf.channel.base.method.param.response.BaseQueryResponse;
+import com.zjf.channel.base.method.param.request.QueryRequest;
+import com.zjf.channel.base.method.param.response.QueryResponse;
 
 /**
  * 查询方法参数转换器
  *
  * @author zhaojufei
  */
-public interface IQueryArgsConverter<Req extends BaseQueryRequest, Res extends BaseQueryResponse, NReq, NRes> extends ArgsConverter<Req, Res, NReq, NRes> {
+public interface IQueryArgsConverter<NReq, NRes> extends IArgsConverter<QueryRequest, QueryResponse, NReq,
+        NRes> {
 }
