@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="channel-base" />
         <module name="channel-wechat-starter" />
         <module name="channel-unionpay-starter" />
         <module name="server-openapi" />

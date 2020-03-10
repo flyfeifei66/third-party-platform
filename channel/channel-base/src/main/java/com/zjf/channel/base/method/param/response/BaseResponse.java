@@ -1,4 +1,4 @@
-package com.zjf.channel.base.method.response;
+package com.zjf.channel.base.method.param.response;
 
 /**
  * @author zhaojufei

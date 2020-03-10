@@ -1,4 +1,4 @@
-package com.zjf.channel.base.method.request;
+package com.zjf.channel.base.method.param.request;
 
 /**
  * 创建请求

@@ -1,10 +1,10 @@
 package com.zjf.channel.base.method.impl;
 
 
-import com.zjf.channel.base.method.IMethodDefinition;
+import com.zjf.channel.base.method.IBaseMethod;
 import com.zjf.channel.base.method.convert.ArgsConverter;
-import com.zjf.channel.base.method.request.BaseRequest;
-import com.zjf.channel.base.method.response.BaseResponse;
+import com.zjf.channel.base.method.param.request.BaseRequest;
+import com.zjf.channel.base.method.param.response.BaseResponse;
 import com.zjf.channel.base.config.BaseConfig;
 
 /**
@@ -19,7 +19,7 @@ import com.zjf.channel.base.config.BaseConfig;
  */
 public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseResponse, CV extends ArgsConverter<Req,
         Res, NReq, NRes>,
-        NReq, NRes, NC> implements IMethodDefinition<Req, Res, NC> {
+        NReq, NRes, NC> implements IBaseMethod<Req, Res, NC> {
 
     /**
      * openapi参数与渠道sdk api参数转换器

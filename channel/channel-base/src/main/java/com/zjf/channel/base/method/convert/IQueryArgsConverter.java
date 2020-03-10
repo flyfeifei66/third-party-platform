@@ -1,7 +1,7 @@
 package com.zjf.channel.base.method.convert;
 
-import com.zjf.channel.base.method.request.BaseQueryRequest;
-import com.zjf.channel.base.method.response.BaseQueryResponse;
+import com.zjf.channel.base.method.param.request.BaseQueryRequest;
+import com.zjf.channel.base.method.param.response.BaseQueryResponse;
 
 /**
  * 查询方法参数转换器

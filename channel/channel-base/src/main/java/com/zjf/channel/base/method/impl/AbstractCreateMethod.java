@@ -1,7 +1,7 @@
 package com.zjf.channel.base.method.impl;
 
-import com.zjf.channel.base.method.request.BaseCreateRequest;
-import com.zjf.channel.base.method.response.BaseCreateResponse;
+import com.zjf.channel.base.method.param.request.BaseCreateRequest;
+import com.zjf.channel.base.method.param.response.BaseCreateResponse;
 import com.zjf.channel.base.method.ICreateMethod;
 import com.zjf.channel.base.method.convert.ICreateArgsConverter;
 
