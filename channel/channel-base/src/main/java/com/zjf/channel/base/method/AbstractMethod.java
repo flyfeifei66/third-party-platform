@@ -2,7 +2,6 @@ package com.zjf.channel.base.method;
 
 
 import com.zjf.channel.base.config.BaseConfig;
-import com.zjf.channel.base.method.convert.IArgsConverter;
 import com.zjf.channel.base.method.param.request.BaseRequest;
 import com.zjf.channel.base.method.param.response.BaseResponse;
 
@@ -16,23 +15,8 @@ import com.zjf.channel.base.method.param.response.BaseResponse;
  *
  * @author zhaojufei
  */
-public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseResponse, NReq, NRes, NC,
-                                                    CV extends IArgsConverter<Req, Res, NReq, NRes>>
+public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseResponse, NReq, NRes, NC>
         implements IBaseMethod<Req, Res, NC> {
-
-    /**
-     * openapi参数与渠道sdk api参数转换器
-     */
-    private CV apiArgsConverter;
-
-    /**
-     * 构造方法
-     *
-     * @param apiArgsConverter
-     */
-    public AbstractMethod(CV apiArgsConverter) {
-        this.apiArgsConverter = apiArgsConverter;
-    }
 
     /**
      * 执行调用的方法
@@ -44,9 +28,9 @@ public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseRe
      */
     @Override
     public Res execute(NC nativeClient, Req request, BaseConfig config) {
-        NReq nReq = apiArgsConverter.convertRequest(request, config);
+        NReq nReq = this.convertRequest(request, config);
         NRes nRes = nativeExecute(nativeClient, nReq);
-        return apiArgsConverter.convertResponse(nRes);
+        return this.convertResponse(nRes);
     }
 
     /**
@@ -58,14 +42,23 @@ public abstract class AbstractMethod<Req extends BaseRequest, Res extends BaseRe
      */
     protected abstract NRes nativeExecute(NC nativeClient, NReq nativeRequest);
 
+    /**
+     * 将openapi入参转换为三方sdk入参
+     *
+     * @param request
+     * @param channelConfig
+     * @return
+     */
+    protected abstract NReq convertRequest(Req request, BaseConfig channelConfig);
 
-    public CV getApiArgsConverter() {
-        return apiArgsConverter;
-    }
+    /**
+     * 将三方sdk出参转换为openapi出参
+     *
+     * @param response
+     * @return
+     */
+    protected abstract Res convertResponse(NRes response);
 
-    public void setApiArgsConverter(CV apiArgsConverter) {
-        this.apiArgsConverter = apiArgsConverter;
-    }
 }
 
 
