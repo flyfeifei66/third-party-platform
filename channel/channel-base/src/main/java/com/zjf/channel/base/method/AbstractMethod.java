@@ -2,8 +2,8 @@ package com.zjf.channel.base.method;
 
 
 import com.zjf.channel.base.config.BaseConfig;
-import com.zjf.channel.base.method.param.request.BaseRequest;
-import com.zjf.channel.base.method.param.response.BaseResponse;
+import com.zjf.channel.base.method.bean.request.BaseRequest;
+import com.zjf.channel.base.method.bean.response.BaseResponse;
 
 /**
  * 底层API抽象实现类

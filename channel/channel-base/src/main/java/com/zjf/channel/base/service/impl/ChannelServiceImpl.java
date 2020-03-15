@@ -7,12 +7,12 @@ import com.zjf.channel.base.method.ICreateMethod;
 import com.zjf.channel.base.method.IQueryMethod;
 import com.zjf.channel.base.method.client.factory.AbstractClientBuilder;
 import com.zjf.channel.base.method.client.factory.IClientBuilderFactory;
-import com.zjf.channel.base.method.param.request.CreateRequest;
-import com.zjf.channel.base.method.param.request.QueryRequest;
-import com.zjf.channel.base.method.param.request.BaseRequest;
-import com.zjf.channel.base.method.param.response.CreateResponse;
-import com.zjf.channel.base.method.param.response.QueryResponse;
-import com.zjf.channel.base.method.param.response.BaseResponse;
+import com.zjf.channel.base.method.bean.request.CreateRequest;
+import com.zjf.channel.base.method.bean.request.QueryRequest;
+import com.zjf.channel.base.method.bean.request.BaseRequest;
+import com.zjf.channel.base.method.bean.response.CreateResponse;
+import com.zjf.channel.base.method.bean.response.QueryResponse;
+import com.zjf.channel.base.method.bean.response.BaseResponse;
 import com.zjf.channel.base.service.IChannelService;
 
 /**
@@ -21,8 +21,8 @@ import com.zjf.channel.base.service.IChannelService;
 public class ChannelServiceImpl<NC> implements IChannelService {
 
     private ChannelEnum channelEnum;
-    private IQueryMethod<NC> queryMethod;
-    private ICreateMethod<NC> createMethod;
+    private IQueryMethod<QueryRequest, QueryResponse, NC> queryMethod;
+    private ICreateMethod<CreateRequest, CreateResponse, NC> createMethod;
     private IClientBuilderFactory<? extends AbstractClientBuilder<NC>> clientBuilderFactory;
 
     public ChannelServiceImpl(ChannelEnum channelEnum, IQueryMethod queryMethod,
@@ -70,16 +70,15 @@ public class ChannelServiceImpl<NC> implements IChannelService {
     protected <Req extends BaseRequest, Res extends BaseResponse> Res executeMethod(IBaseMethod<Req, Res, NC> baseMethod,
                                                                                     Req request,
                                                                                     BaseConfig config) {
-        Res execute = baseMethod.execute(this.getClient(config), request, config);
+        Res execute = baseMethod.execute(this.getClient(), request, config);
         return execute;
     }
 
     /**
-     * @param config
      * @return
      */
-    public NC getClient(BaseConfig config) {
-        return this.clientBuilderFactory.createBuilder().setConfig(config).build();
+    public NC getClient() {
+        return this.clientBuilderFactory.createBuilder().build();
     }
 
     public ChannelEnum getChannelEnum() {

@@ -6,12 +6,12 @@ package com.zjf.channel.base.method.client.factory;
  *
  * @author zhaojufei
  */
-public interface IClientBuilderFactory<T extends AbstractClientBuilder> {
+public interface IClientBuilderFactory<B extends AbstractClientBuilder> {
 
     /**
      * 创建一个clientBuilder
      *
      * @return
      */
-    T createBuilder();
+    B createBuilder();
 }

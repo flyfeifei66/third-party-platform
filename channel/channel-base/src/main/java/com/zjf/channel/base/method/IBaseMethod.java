@@ -2,8 +2,8 @@ package com.zjf.channel.base.method;
 
 
 import com.zjf.channel.base.config.BaseConfig;
-import com.zjf.channel.base.method.param.request.BaseRequest;
-import com.zjf.channel.base.method.param.response.BaseResponse;
+import com.zjf.channel.base.method.bean.request.BaseRequest;
+import com.zjf.channel.base.method.bean.response.BaseResponse;
 
 /**
  * 定义方法的模式：拿着一个入参request和配置信息，得到一个response。

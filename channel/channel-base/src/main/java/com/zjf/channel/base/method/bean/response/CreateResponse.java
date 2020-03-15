@@ -1,4 +1,4 @@
-package com.zjf.channel.base.method.param.response;
+package com.zjf.channel.base.method.bean.response;
 
 /**
  * 创建返回值

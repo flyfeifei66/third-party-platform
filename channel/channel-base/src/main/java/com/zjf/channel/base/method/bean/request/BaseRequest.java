@@ -1,4 +1,4 @@
-package com.zjf.channel.base.method.param.request;
+package com.zjf.channel.base.method.bean.request;
 
 /**
  * @author zhaojufei
