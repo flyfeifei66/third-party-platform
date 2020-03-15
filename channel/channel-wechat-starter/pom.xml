@@ -11,6 +11,7 @@
     </parent>
 
     <artifactId>channel-wechat-starter</artifactId>
+    <version>2.0.0</version>
 
     <dependencies>
         <dependency>

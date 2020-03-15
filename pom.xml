@@ -19,53 +19,50 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <!-- 定义子模块版本号；父模块统一管理起来：子模块改了版本，这个地方改一下即可 -->
+        <channel-base.version>1.0.0</channel-base.version>
+        <channel-unionpay.version>1.0.0</channel-unionpay.version>
+        <channel-wechat.version>2.0.0</channel-wechat.version>
+        <web-openapi.sersion>1.0.0</web-openapi.sersion>
+
+        <!-- 定义其他依赖版本 -->
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
-        <lombok.version>1.18.12</lombok.version>
+
+        <mysql-conn.version>5.1.40</mysql-conn.version>
         <mybatis.version>2.1.1</mybatis.version>
         <mybatisPlus.version>3.3.1</mybatisPlus.version>
+
+        <common-lang3.version>3.9</common-lang3.version>
+        <common-beanutils.version>1.9.4</common-beanutils.version>
         <hutool.vesion>5.2.0</hutool.vesion>
+
+        <apollo.version>0.10.2</apollo.version>
+        <redisson.version>3.12.3</redisson.version>
+
+        <lombok.version>1.18.12</lombok.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
+            <!--  将所有子模块依赖添加进来，子模块之间依赖就不必再指定版本号，每个子版本可以单独变化 -->
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope>
+                <groupId>com.zjf</groupId>
+                <artifactId>channel-base</artifactId>
+                <version>${channel-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjf</groupId>
+                <artifactId>channel-unionpay-starter</artifactId>
+                <version>${channel-unionpay.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjf</groupId>
+                <artifactId>channel-wechat-starter</artifactId>
+                <version>${channel-wechat.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-redis</artifactId>
-            </dependency>
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <scope>runtime</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus</artifactId>
-                <version>${mybatisPlus.version}</version>
-            </dependency>
-
-            <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.vesion}</version>
-            </dependency>
 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -74,42 +71,85 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-conn.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatisPlus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${common-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.vesion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-            </plugin>
-            <plugin>
-                <groupId>com.amashchenko.maven.plugin</groupId>
-                <artifactId>gitflow-maven-plugin</artifactId>
-                <configuration>
-                    <allowSnapshots>true</allowSnapshots>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <generateBackupPoms>false</generateBackupPoms>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>2.10</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
     </build>
 
     <modules>
         <module>channel</module>
-        <module>server-openapi</module>
+        <module>web-openapi</module>
     </modules>
 
 </project>
