@@ -5,6 +5,7 @@ import com.zjf.channel.wechat.method.client.bean.request.SdkWechatQueryReq;
 import com.zjf.channel.wechat.method.client.bean.response.SdkWechatCreateRes;
 import com.zjf.channel.wechat.method.client.bean.response.SdkWechatQueryRes;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 
 @Slf4j
 public class WechatClient {
@@ -14,7 +15,9 @@ public class WechatClient {
 
     public SdkWechatQueryRes query(SdkWechatQueryReq sdkWechatQueryReq) {
         log.error("已成功向{}发送：{}", url, sdkWechatQueryReq.toString());
-        return new SdkWechatQueryRes();
+        SdkWechatQueryRes sdkWechatQueryRes = new SdkWechatQueryRes();
+        BeanUtils.copyProperties(sdkWechatQueryReq, sdkWechatQueryRes);
+        return sdkWechatQueryRes;
     }
 
 
@@ -24,6 +27,8 @@ public class WechatClient {
      */
     public SdkWechatCreateRes create(SdkWechatCreateReq sdkWechatCreateReq) {
         log.error("已成功向{}发送：{}", url, sdkWechatCreateReq.toString());
-        return new SdkWechatCreateRes();
+        SdkWechatCreateRes sdkWechatCreateRes = new SdkWechatCreateRes();
+        BeanUtils.copyProperties(sdkWechatCreateReq, sdkWechatCreateRes);
+        return sdkWechatCreateRes;
     }
 }
