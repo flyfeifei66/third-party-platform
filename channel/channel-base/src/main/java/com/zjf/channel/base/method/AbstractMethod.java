@@ -7,10 +7,10 @@ import com.zjf.channel.base.method.param.response.BaseResponse;
 
 /**
  * 底层API抽象实现类
- * Req：对内的客户化、业务化的入参
- * Res：对内返回的统一格式的出参
- * NReq：三方系统需要的入参
- * NRes：三方系统需要的出参
+ * Req：本系统使用入参
+ * Res：本系统返回出参
+ * NReq：三方系统SDK需要的入参
+ * NRes：三方系统SDK需要的出参
  * NC：对接三方系统的Client
  *
  * @author zhaojufei

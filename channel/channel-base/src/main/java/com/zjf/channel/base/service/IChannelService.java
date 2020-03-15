@@ -8,8 +8,7 @@ import com.zjf.channel.base.method.param.response.CreateResponse;
 import com.zjf.channel.base.method.param.response.QueryResponse;
 
 /**
- * @author maxh
- * @since 3.0 , 2018/3/26 11:15.
+ *
  */
 public interface IChannelService {
     /**

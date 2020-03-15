@@ -17,7 +17,6 @@
         <dependency>
             <groupId>com.zjf</groupId>
             <artifactId>channel-base</artifactId>
-            <version>1.0.0</version>
         </dependency>
 
         <dependency>

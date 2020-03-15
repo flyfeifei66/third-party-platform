@@ -15,10 +15,10 @@ public interface IBaseMethod<Req extends BaseRequest, Res extends BaseResponse, 
     /**
      * 执行调用的方法
      *
-     * @param nativeClient 直接对接三方的客户端
-     * @param request      业务系统的入参
+     * @param nativeClient 对接三方的客户端
+     * @param request      本系统使用入参
      * @param config       额外的配置信息
-     * @return Res         对业务系统返回的出参
+     * @return Res         本系统返回出参
      */
     Res execute(NC nativeClient, Req request, BaseConfig config);
 }

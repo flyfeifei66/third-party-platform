@@ -45,7 +45,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <!--  将所有子模块依赖添加进来，子模块之间依赖就不必再指定版本号，每个子版本可以单独变化 -->
             <dependency>
                 <groupId>com.zjf</groupId>

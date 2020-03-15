@@ -86,5 +86,4 @@ public class ChannelServiceImpl<NC> implements IChannelService {
         return channelEnum;
     }
 
-
 }
