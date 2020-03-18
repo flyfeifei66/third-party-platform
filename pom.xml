@@ -20,13 +20,16 @@
     <properties>
         <java.version>1.8</java.version>
 
-        <!-- 定义子模块版本号；父模块统一管理起来：子模块改了版本，这个地方改一下即可 -->
+        <!-- 定义本工程子模块版本号；父模块统一管理起来：子模块改了版本，这个地方改一下即可 -->
         <channel-base.version>1.0.0</channel-base.version>
         <channel-unionpay.version>1.0.0</channel-unionpay.version>
         <channel-wechat.version>2.0.0</channel-wechat.version>
-        <web-openapi.sersion>1.0.0</web-openapi.sersion>
+        <common.version>1.0.0</common.version>
+        <web-openapi.version>1.0.0</web-openapi.version>
 
-        <!-- 定义其他依赖版本 -->
+        <!-- 定义本组织其他工程模块版本 -->
+
+        <!-- 定义三方依赖版本 -->
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
 
         <mysql-conn.version>5.1.40</mysql-conn.version>
@@ -39,7 +42,7 @@
 
         <apollo.version>0.10.2</apollo.version>
         <redisson.version>3.12.3</redisson.version>
-
+        <fastjson.version>1.2.66</fastjson.version>
         <lombok.version>1.18.12</lombok.version>
     </properties>
 
@@ -60,6 +63,16 @@
                 <groupId>com.zjf</groupId>
                 <artifactId>channel-wechat-starter</artifactId>
                 <version>${channel-wechat.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjf</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zjf</groupId>
+                <artifactId>web-openapi</artifactId>
+                <version>${web-openapi.version}</version>
             </dependency>
 
 
@@ -116,6 +129,12 @@
             </dependency>
 
             <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
@@ -123,6 +142,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement>
@@ -138,17 +166,18 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>com.amashchenko.maven.plugin</groupId>
-                    <artifactId>gitflow-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
+        <plugins>
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
 
     <modules>
         <module>channel</module>
         <module>web-openapi</module>
+        <module>common</module>
     </modules>
 
 </project>
