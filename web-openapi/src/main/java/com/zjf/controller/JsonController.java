@@ -19,7 +19,7 @@ import java.util.Date;
 
 @Slf4j
 @RestController
-public class JsonTest {
+public class JsonController {
 
     @Autowired
     private ObjectMapper objectMapper;
