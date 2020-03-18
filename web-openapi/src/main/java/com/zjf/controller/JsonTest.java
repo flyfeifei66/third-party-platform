@@ -20,10 +20,10 @@ public class JsonTest {
         User xiaoming = new User("小明", date);
 
         String jsonStr = JSON.toJSONString(xiaoming);
-        log.error(jsonStr);
+        log.error("格式化字符串：{}", jsonStr);
 
         User user2 = JSON.parseObject(jsonStr, User.class);
-        log.error(user2.toString());
+        log.error("转回bean:{}", user2.toString());
 
         return "hehe";
     }

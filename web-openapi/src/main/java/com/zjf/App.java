@@ -1,7 +1,16 @@
 package com.zjf;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class App {
+    /**
+     * 工程启动
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(App.class, args);
+        System.out.println("---------------启动完成-----------------");
+    }
+
 }
