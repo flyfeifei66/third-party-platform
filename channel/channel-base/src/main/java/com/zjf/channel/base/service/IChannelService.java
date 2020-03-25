@@ -2,6 +2,7 @@ package com.zjf.channel.base.service;
 
 
 import com.zjf.channel.base.config.BaseConfig;
+import com.zjf.channel.base.constant.ChannelEnum;
 import com.zjf.channel.base.method.bean.request.CreateRequest;
 import com.zjf.channel.base.method.bean.request.QueryRequest;
 import com.zjf.channel.base.method.bean.response.CreateResponse;
@@ -29,5 +30,13 @@ public interface IChannelService {
      * @return
      */
     CreateResponse create(CreateRequest createRequest, BaseConfig config);
+
+
+    /**
+     * 获得当前渠道
+     *
+     * @return
+     */
+    ChannelEnum getChannelEnum();
 
 }

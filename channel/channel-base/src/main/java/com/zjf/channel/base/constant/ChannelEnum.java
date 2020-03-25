@@ -6,8 +6,8 @@ package com.zjf.channel.base.constant;
  * @author zhaojufei
  */
 public enum ChannelEnum {
-    WECHAT("wechat", "微信"),
-    UNION_PAY("union_pay", "银联");
+    wechat("wechat", "微信"),
+    union_pay("union_pay", "银联");
 
     private String code;
     private String value;

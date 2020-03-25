@@ -8,7 +8,6 @@ import com.zjf.channel.base.method.bean.response.QueryResponse;
  *
  * @author zhaojufei
  */
-public interface IQueryMethod<Req extends QueryRequest, Res extends QueryResponse, NC> extends IBaseMethod<Req,
-        Res, NC> {
+public interface IQueryMethod<NC> extends IBaseMethod<QueryRequest, QueryResponse, NC> {
 
 }

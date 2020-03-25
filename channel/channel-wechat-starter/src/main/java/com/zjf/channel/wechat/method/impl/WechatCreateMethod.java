@@ -3,15 +3,15 @@ package com.zjf.channel.wechat.method.impl;
 import com.zjf.channel.base.config.BaseConfig;
 import com.zjf.channel.base.method.AbstractMethod;
 import com.zjf.channel.base.method.ICreateMethod;
-import com.zjf.channel.wechat.method.bean.request.WechatCreateReq;
-import com.zjf.channel.wechat.method.bean.response.WechatCreateRes;
+import com.zjf.channel.base.method.bean.request.CreateRequest;
+import com.zjf.channel.base.method.bean.response.CreateResponse;
 import com.zjf.channel.wechat.method.client.WechatClient;
 import com.zjf.channel.wechat.method.client.bean.request.SdkWechatCreateReq;
 import com.zjf.channel.wechat.method.client.bean.response.SdkWechatCreateRes;
 import org.springframework.beans.BeanUtils;
 
-public class WechatCreateMethod extends AbstractMethod<WechatCreateReq, WechatCreateRes, SdkWechatCreateReq,
-        SdkWechatCreateRes, WechatClient> implements ICreateMethod<WechatCreateReq, WechatCreateRes, WechatClient> {
+public class WechatCreateMethod extends AbstractMethod<CreateRequest, CreateResponse, SdkWechatCreateReq,
+        SdkWechatCreateRes, WechatClient> implements ICreateMethod<WechatClient> {
 
 
     @Override
@@ -20,15 +20,15 @@ public class WechatCreateMethod extends AbstractMethod<WechatCreateReq, WechatCr
     }
 
     @Override
-    protected SdkWechatCreateReq convertRequest(WechatCreateReq request, BaseConfig channelConfig) {
+    protected SdkWechatCreateReq convertRequest(CreateRequest request, BaseConfig channelConfig) {
         SdkWechatCreateReq sdkWechatCreateReq = new SdkWechatCreateReq();
         BeanUtils.copyProperties(request, sdkWechatCreateReq);
         return new SdkWechatCreateReq();
     }
 
     @Override
-    protected WechatCreateRes convertResponse(SdkWechatCreateRes response) {
-        WechatCreateRes wechatCreateRes = new WechatCreateRes();
+    protected CreateResponse convertResponse(SdkWechatCreateRes response) {
+        CreateResponse wechatCreateRes = new CreateResponse();
         BeanUtils.copyProperties(response, wechatCreateRes);
         return wechatCreateRes;
     }

@@ -21,8 +21,8 @@ import com.zjf.channel.base.service.IChannelService;
 public class ChannelServiceImpl<NC> implements IChannelService {
 
     private ChannelEnum channelEnum;
-    private IQueryMethod<QueryRequest, QueryResponse, NC> queryMethod;
-    private ICreateMethod<CreateRequest, CreateResponse, NC> createMethod;
+    private IQueryMethod<NC> queryMethod;
+    private ICreateMethod<NC> createMethod;
     private IClientBuilderFactory<? extends AbstractClientBuilder<NC>> clientBuilderFactory;
 
     public ChannelServiceImpl(ChannelEnum channelEnum, IQueryMethod queryMethod,
@@ -81,6 +81,13 @@ public class ChannelServiceImpl<NC> implements IChannelService {
         return this.clientBuilderFactory.createBuilder().build();
     }
 
+
+    /**
+     * 什么渠道
+     *
+     * @return
+     */
+    @Override
     public ChannelEnum getChannelEnum() {
         return channelEnum;
     }

@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class WechatConfiguration {
     @Bean
     IChannelService channelService() {
-        IChannelService channelService = new ChannelServiceImpl<WechatClient>(ChannelEnum.WECHAT,
+        IChannelService channelService = new ChannelServiceImpl<WechatClient>(ChannelEnum.wechat,
                 wechatQueryMethod(), wechatCreateMethod(), wechatClientBuilderFactory());
         return channelService;
     }

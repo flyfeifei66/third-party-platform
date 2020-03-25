@@ -8,7 +8,6 @@ import com.zjf.channel.base.method.bean.response.CreateResponse;
  *
  * @author zhaojufei
  */
-public interface ICreateMethod<Req extends CreateRequest, Res extends CreateResponse, NC> extends IBaseMethod<Req,
-        Res, NC> {
+public interface ICreateMethod< NC> extends IBaseMethod<CreateRequest, CreateResponse, NC> {
 
 }
