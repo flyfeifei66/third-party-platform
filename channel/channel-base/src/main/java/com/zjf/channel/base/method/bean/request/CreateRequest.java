@@ -1,8 +1,6 @@
 package com.zjf.channel.base.method.bean.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
@@ -12,12 +10,5 @@ import lombok.ToString;
  */
 @Data
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class CreateRequest extends BaseRequest {
-
-    /**
-     * 渠道
-     */
-    private String channel;
 }
