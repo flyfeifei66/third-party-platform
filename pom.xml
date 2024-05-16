@@ -38,7 +38,7 @@
 
         <common-lang3.version>3.9</common-lang3.version>
         <common-beanutils.version>1.9.4</common-beanutils.version>
-        <hutool.vesion>5.2.0</hutool.vesion>
+        <hutool.vesion>5.8.21</hutool.vesion>
 
         <apollo.version>0.10.2</apollo.version>
         <redisson.version>3.12.3</redisson.version>
